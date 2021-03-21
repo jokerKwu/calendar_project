@@ -2,7 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import * as React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Main from '../main/Main';
-import Calendar from '../calendar/Calendar';
+import CalendarScreen from '../calendar/CalendarScreen';
 import WishList from '../wishList/WishList';
 import Memo from '../memo/Memo';
 import {NavigationContainer} from '@react-navigation/native';
@@ -27,7 +27,7 @@ const CalendarStack = createStackNavigator();
 function CalendarStackScreen() {
     return (
         <CalendarStack.Navigator>
-            <CalendarStack.Screen name="Calendar" component={Calendar}/>
+            <CalendarStack.Screen name="CalendarScreen" component={CalendarScreen}/>
         </CalendarStack.Navigator>
     );
 }

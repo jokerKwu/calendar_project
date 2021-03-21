@@ -3,7 +3,6 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Footer from './src/footer/Footer';
 import Main from './src/main/Main';
-import Calendar from './src/calendar/Calendar';
 import WishList from './src/wishList/WishList';
 import Memo from './src/memo/Memo';
 import { NavigationContainer } from '@react-navigation/native';
