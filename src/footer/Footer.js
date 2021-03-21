@@ -13,7 +13,11 @@ import {Ionicons} from '@expo/vector-icons';
 const MainStack = createStackNavigator();
 function MainStackScreen() {
     return (
-        <MainStack.Navigator>
+        <MainStack.Navigator
+        screenOptions={{
+          headerStyle:{backgroundColor:"transparent"},
+          headerTintColor:"trnasparent"}}
+        >
             <MainStack.Screen name="Main" component={Main}/>
         </MainStack.Navigator>
     );
