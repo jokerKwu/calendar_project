@@ -8,22 +8,15 @@ import WishList from './src/wishList/WishList';
 import Memo from './src/memo/Memo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Stack = createStackNavigator();
+
 
 export default function App() {
     return (  
-      <View>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Main" component={Main} />
-            <Stack.Screen name="Calendar" component={Calendar} />
-            <Stack.Screen name="WishList" component={WishList} />
-            <Stack.Screen name="Memo" component={Memo} />
-          </Stack.Navigator>
-        </NavigationContainer>
+      <>
         <Footer/>
-      </View>
+      </>
     );
 }
 

@@ -19,3 +19,10 @@ npm install @react-navigation/stack
 <pre><code>
 npm install --save react-native-calendars
 </code></pre>
+
+
+
+### Tab navigation
+<pre><code>
+npm install @react-navigation/bottom-tabs
+</code></pre>
