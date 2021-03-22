@@ -19,12 +19,10 @@ export default class Main extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.content1}>
-          <Text style={styles.contentText}>Content 1</Text>
-        </View>
+
         <ImageSlider
           loopBothSides
-          autoPlayWithInterval={10000}
+          autoPlayWithInterval={1000}
           images={images}
           customSlide={({ index, item, style, width }) => (
             // It's important to put style here because it's got offset inside
@@ -43,7 +41,8 @@ export default class Main extends Component {
                     style={styles.button}
                   >
                     <Text style={position === index && styles.buttonSelected}>
-                      {index + 1}
+                      { index + 1}
+                      
                     </Text>
                   </TouchableHighlight>
                 );
@@ -92,13 +91,13 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   customSlide: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#ddd',
     alignItems: 'center',
     justifyContent: 'center',
   },
   customImage: {
-    width: '100%',
-    height: 600,
+    width: '80%',
+    height: '80%',
   },
 });
 
