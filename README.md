@@ -20,9 +20,22 @@ npm install @react-navigation/stack
 npm install --save react-native-calendars
 </code></pre>
 
-
-
 ### Tab navigation
 <pre><code>
 npm install @react-navigation/bottom-tabs
+</code></pre>
+
+### Modal add
+<pre><code>
+npm add react-native-modal
+</code></pre>
+
+### Swipeable install
+<pre><code>
+npm install --save react-native-gesture-handler
+</code></pre>
+
+### AsyncStorage install
+<pre><code>
+expo install @react-native-async-storage/async-storage
 </code></pre>
