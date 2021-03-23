@@ -3,10 +3,8 @@ import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, 
           TouchableOpacity, View, FlatList, Alert } from 'react-native';
 export default function Memo() {
-
   const [writeMode, setWriteMode] = useState(false); 
   const [txt, setTxt] = useState(''); 
-
   const orimemo = [
     { 
       id:'1',
@@ -14,18 +12,15 @@ export default function Memo() {
     },
     {
       id:'2',
-      memo:'서기입니다.'
+      memo:'테스트입니다.'
     },
     {
       id:'3',
-      memo:"유튜브 메모강의 입니다.\na dfasdfasdf asdf\nsdfasdkfa"
+      memo:"심심하네요..."
     }
   ];
-
   const [memos, setMemos] = useState(orimemo); 
   const [idx, setIdx] = useState(4); 
-
-
   const addMemo = () =>{
     let a = {id:idx, memo:txt};
     setMemos(prev=>[...prev,a]);  
@@ -42,25 +37,22 @@ export default function Memo() {
   }
   if(writeMode){
     return (
-      <SafeAreaView style={{flex:1, backgroundColor:'#9c0', }}>
+      <SafeAreaView style={{flex:1, backgroundColor:'#D9CC8B', }}>
 
       <View  style={{flex:1,   }}>        
         <View style={{flexDirection:'row', justifyContent:'space-between'}}>
           <TouchableOpacity style={{padding:15, }} onPress={()=>setWriteMode(false)}>
             <Text style={{fontSize:18, }} >취소</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={{padding:15, }}     onPress={()=>addMemo()} >
             <Text style={{fontSize:18, }}>저장</Text>
           </TouchableOpacity>
-
         </View>
         <View style={{flex:1, backgroundColor:'#fff', }}>
         <TextInput
             style={{  backgroundColor: '#eee',flex:1, padding:10,  }}
             onChangeText={text => setTxt(text)}
             multiline 
-            
           />
         </View>
         <StatusBar style="auto" />
@@ -74,14 +66,14 @@ export default function Memo() {
 
   return (
 
-    <SafeAreaView style={{flex:1, backgroundColor:'tomato', }}>
+    <SafeAreaView style={{flex:1, backgroundColor:'#A3CCF0', }}>
       <View style={{}}>
         <Text style={{fontSize:18, padding:15 }}>메모장</Text>
       </View>
       <View style={{flex:1, backgroundColor:'#fff', }}>
 
         <View style={{position:'absolute', right:20, bottom:20,zIndex:10,  }}>
-          <View style={{          width:50, height:50, backgroundColor:'tomato', borderRadius:25,
+          <View style={{          width:50, height:50, backgroundColor:'#D9B589', borderRadius:25,
                 alignItems:'center', justifyContent:'center', 
             }}>          
             <TouchableOpacity onPress={()=>setWriteMode(true)}>       

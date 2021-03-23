@@ -21,17 +21,15 @@ const WishHeader = ({
                 <Ionicons name='ios-add' color='#FFFFFF' size={24} />
             </TouchableOpacity>
       </View>
-
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        backgroundColor:'tomato',
+        backgroundColor:'#A3CCF0',
     },
     title: {
         padding:15,
@@ -44,7 +42,7 @@ const styles = StyleSheet.create({
         borderRadius: 14,
         padding:15,
         marginRight:10,
-        backgroundColor: '#212121',
+        backgroundColor: '#D9B589',
         justifyContent: 'center',
         alignItems: 'center'
     }

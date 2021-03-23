@@ -1,8 +1,7 @@
 import {StatusBar} from 'expo-status-bar';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {LocaleConfig} from 'react-native-calendars';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import {Calendar, CalendarList, Agenda,LocaleConfig} from 'react-native-calendars';
 LocaleConfig.locales['fr'] = {
   monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
   monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
@@ -20,14 +19,32 @@ LocaleConfig.defaultLocale = 'fr';
 
 
     return (  
+      <View style={{flex:1}}>
+        <View style={styles.container}>
+          <Text style={styles.title}>캘린더</Text>
+        </View>
         <CalendarList>
         <Calendar
         onDayPress={(day) =>{ addDates(); }} 
         markedDates={markedDates}
-
         />
+        
+
         </CalendarList>
-      
+        </View>
     );
 }
+const styles = StyleSheet.create({
+  container: {
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'space-between',
+      backgroundColor:'#A3CCF0',
+  },title: {
+    padding:15,
+    fontSize:18,
+    textAlign:'center'
+}
+});
+
 export default CalendarScreen;

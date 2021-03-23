@@ -6,7 +6,6 @@ import CalendarScreen from './src/calendar/CalendarScreen';
 import WishMain from './src/wishList/WishMain';
 import Memo from './src/memo/Memo';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
 
