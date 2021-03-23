@@ -37,7 +37,7 @@ export default function Memo() {
   }
   if(writeMode){
     return (
-      <SafeAreaView style={{flex:1, backgroundColor:'#D9CC8B', }}>
+      <View style={{flex:1, backgroundColor:'#D9CC8B', }}>
 
       <View  style={{flex:1,   }}>        
         <View style={{flexDirection:'row', justifyContent:'space-between'}}>
@@ -57,7 +57,7 @@ export default function Memo() {
         </View>
         <StatusBar style="auto" />
       </View>
-      </SafeAreaView>
+      </View>
     );
   }
 
@@ -66,7 +66,7 @@ export default function Memo() {
 
   return (
 
-    <SafeAreaView style={{flex:1, backgroundColor:'#A3CCF0', }}>
+    <View style={{flex:1, backgroundColor:'#A3CCF0', }}>
       <View style={{}}>
         <Text style={{fontSize:18, padding:15 }}>메모장</Text>
       </View>
@@ -85,8 +85,7 @@ export default function Memo() {
         <FlatList data={memos}  renderItem={renderMemo}   style={{flex:1}} />
       </View>
       </View>
-      <StatusBar style="auto" />
-      </SafeAreaView> 
+      </View> 
 
   );
 }

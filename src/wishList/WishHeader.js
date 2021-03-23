@@ -18,7 +18,7 @@ const WishHeader = ({
                 style={styles.button}
                 onPress={show}
             >
-                <Ionicons name='ios-add' color='#FFFFFF' size={24} />
+                <Ionicons name='ios-add' color='#FFF' size={24} />
             </TouchableOpacity>
       </View>
     )

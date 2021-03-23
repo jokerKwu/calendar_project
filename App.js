@@ -1,6 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
 import * as React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,SafeAreaView} from 'react-native';
 import Main from './src/main/Main';
 import CalendarScreen from './src/calendar/CalendarScreen';
 import WishMain from './src/wishList/WishMain';
@@ -12,6 +12,7 @@ import {Ionicons} from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
     <NavigationContainer>
         <Tab.Navigator
             screenOptions={({route}) => ({
@@ -44,6 +45,7 @@ export default function App() {
             <Tab.Screen name="Memo" component={Memo}/>
         </Tab.Navigator>
     </NavigationContainer>
+    </SafeAreaView>
 );
 }
 
