@@ -18,7 +18,6 @@ export default class WishMain extends React.Component {
     ],
     showModal:false,
   }
-
   render() {
     return (
       <View style={styles.container}>

@@ -1,50 +1,49 @@
-import React from 'react'
+import React from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TouchableOpacity,
-} from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const WishHeader = ({
     show,
 }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>
-                할 일 목록
-            </Text>
-            <TouchableOpacity
+        <Text style={styles.title}>할 일 목록</Text>
+        <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.button}
                 onPress={show}
             >
                 <Ionicons name='ios-add' color='#FFFFFF' size={24} />
             </TouchableOpacity>
-        </View>
+      </View>
+
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: 56,
-        marginBottom: 16,
-        marginLeft: 16,
-        marginRight: 16,
+        flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        backgroundColor:'tomato',
     },
     title: {
-        color: '#212121',
-        fontSize: 32,
-        fontWeight: '600',
+        padding:15,
+        fontSize:18,
+        textAlign:'center'
     },
     button: {
         width: 28,
         height: 28,
         borderRadius: 14,
+        padding:15,
+        marginRight:10,
         backgroundColor: '#212121',
         justifyContent: 'center',
         alignItems: 'center'

@@ -1,88 +1,101 @@
-import {StatusBar} from 'expo-status-bar';
-import React, {useState} from 'react';
-import {StyleSheet, Text, View,TextInput,TouchableOpacity} from 'react-native';
-import { Rating, AirbnbRating } from 'react-native-ratings';
-import { Ionicons } from '@expo/vector-icons';
-import { add } from 'react-native-reanimated';
-const datas = [
-	{
-		userName: "arum-k",
-		review: "여기 완전 맛집이에요!",
-		rating: 4,
-		date: "2021.02.22"
-	},
-	{
-		userName: "dipsiiiiiiiiii",
-		review: "너무 맛있어서 주말 내내 시켜 먹었어요",
-		rating: 5,
-		date: "2021.03.22"
-	},
-	{
-		userName: "sangmotmi",
-		review: "저는 별로였는데 같이 간 친구는 좋아하더라구요",
-		rating: 3.5,
-		date: "2021.03.22"
-	},
-]
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+import { SafeAreaView, StyleSheet, Text, TextInput, 
+          TouchableOpacity, View, FlatList, Alert } from 'react-native';
+export default function Memo() {
 
-const reply = datas.map((x) => {
-  return(
-      <View>
-        <Text>{x.userName}</Text>
-        <Rating ratingCount={5} startingValue={x.rating} />
-        <Text>{x.date}</Text>
-        <Text>{x.review}</Text>
-      
-      </View>
-      
-  );
-});
+  const [writeMode, setWriteMode] = useState(false); 
+  const [txt, setTxt] = useState(''); 
+
+  const orimemo = [
+    { 
+      id:'1',
+      memo:'안녕하세요.'
+    },
+    {
+      id:'2',
+      memo:'서기입니다.'
+    },
+    {
+      id:'3',
+      memo:"유튜브 메모강의 입니다.\na dfasdfasdf asdf\nsdfasdkfa"
+    }
+  ];
+
+  const [memos, setMemos] = useState(orimemo); 
+  const [idx, setIdx] = useState(4); 
 
 
-function Main() {
-  const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState(datas);
-  const onChangeText = (text) =>{
-    //변경된 값을 저장
-    setInputValue(text);
-  };
-
-    return (  
-
-
-<View>
-      <TextInput style={{width:200,height:25,borderWidth:1}}/>
-      <TouchableOpacity 
-      onPress={() => {console.log('asdf')}}>
-      </TouchableOpacity>
-	  {reply}
-</View>
-    );
-}
-
-const styles = StyleSheet.create({
-  container: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginTop: 56,
-      marginBottom: 16,
-      marginLeft: 16,
-      marginRight: 16,
-  },
-  title: {
-      color: '#212121',
-      fontSize: 32,
-      fontWeight: '600',
-  },
-  button: {
-      width: 28,
-      height: 28,
-      borderRadius: 14,
-      backgroundColor: '#212121',
-      justifyContent: 'center',
-      alignItems: 'center'
+  const addMemo = () =>{
+    let a = {id:idx, memo:txt};
+    setMemos(prev=>[...prev,a]);  
+    setWriteMode(false); 
+    setIdx(prev=>prev+1); 
   }
-})
+  const renderMemo = ({item}) =>{
+    return(
+      <View style={{padding:10, borderBottomColor:'#ddd', borderBottomWidth:1,  flexDirection:'row'}}>
+        <Text style={{marginRight:10, }}>{item.id}</Text>
+        <Text>{item.memo}</Text>
+      </View>
+    );
+  }
+  if(writeMode){
+    return (
+      <SafeAreaView style={{flex:1, backgroundColor:'#9c0', }}>
 
-export default Main;
+      <View  style={{flex:1,   }}>        
+        <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+          <TouchableOpacity style={{padding:15, }} onPress={()=>setWriteMode(false)}>
+            <Text style={{fontSize:18, }} >취소</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={{padding:15, }}     onPress={()=>addMemo()} >
+            <Text style={{fontSize:18, }}>저장</Text>
+          </TouchableOpacity>
+
+        </View>
+        <View style={{flex:1, backgroundColor:'#fff', }}>
+        <TextInput
+            style={{  backgroundColor: '#eee',flex:1, padding:10,  }}
+            onChangeText={text => setTxt(text)}
+            multiline 
+            
+          />
+        </View>
+        <StatusBar style="auto" />
+      </View>
+      </SafeAreaView>
+    );
+  }
+
+
+
+
+  return (
+
+    <SafeAreaView style={{flex:1, backgroundColor:'tomato', }}>
+      <View style={{}}>
+        <Text style={{fontSize:18, padding:15 }}>메모장</Text>
+      </View>
+      <View style={{flex:1, backgroundColor:'#fff', }}>
+
+        <View style={{position:'absolute', right:20, bottom:20,zIndex:10,  }}>
+          <View style={{          width:50, height:50, backgroundColor:'tomato', borderRadius:25,
+                alignItems:'center', justifyContent:'center', 
+            }}>          
+            <TouchableOpacity onPress={()=>setWriteMode(true)}>       
+              <Text style={{color:'#ffff', }}>글쓰기</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      <View style={{flex:1, }}>
+        <FlatList data={memos}  renderItem={renderMemo}   style={{flex:1}} />
+      </View>
+      </View>
+      <StatusBar style="auto" />
+      </SafeAreaView> 
+
+  );
+}
+ 

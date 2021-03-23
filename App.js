@@ -10,47 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
 
-const MainStack = createStackNavigator();
-function MainStackScreen() {
-    return (
-        <MainStack.Navigator
-        screenOptions={{
-          headerStyle:{backgroundColor:"transparent"},
-          headerTintColor:"trnasparent"}}
-        >
-            <MainStack.Screen name="Main" component={Main}/>
-        </MainStack.Navigator>
-    );
-}
-
-const CalendarStack = createStackNavigator();
-function CalendarStackScreen() {
-    return (
-        <CalendarStack.Navigator>
-            <CalendarStack.Screen name="CalendarScreen" component={CalendarScreen}/>
-        </CalendarStack.Navigator>
-    );
-}
-const WishMainStack = createStackNavigator();
-function WishMainStackScreen() {
-    return (
-        <WishMainStack.Navigator>
-            <WishMainStack.Screen name="WishMain" component={WishMain}/>
-        </WishMainStack.Navigator>
-    );
-}
-const MemoStack = createStackNavigator();
-function MemoStackScreen() {
-    return (
-        <MemoStack.Navigator>
-            <MemoStack.Screen name="Memo" component={Memo}/>
-        </MemoStack.Navigator>
-    );
-}
-
 const Tab = createBottomTabNavigator();
-
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -66,7 +26,7 @@ export default function App() {
                         iconName = focused
                             ? "ios-calendar-outline"
                             : "ios-calendar";
-                    }else if (route.name === "WishMain"){
+                    }else if (route.name === "WishList"){
                       iconName = focused ? "ios-list-outline":"ios-list-sharp";
                     }else if (route.name === "Memo"){
                       iconName = focused ? "ios-book-outline":"ios-book-sharp";
@@ -79,10 +39,10 @@ export default function App() {
                 activeTintColor: "#ff5722",
                 inactiveTintColor: "#d9c6a5"
             }}>
-            <Tab.Screen name="Main" component={MainStackScreen}/>
-            <Tab.Screen name="Calendar" component={CalendarStackScreen}/>
-            <Tab.Screen name="WishMain" component={WishMainStackScreen}/>
-            <Tab.Screen name="Memo" component={MemoStackScreen}/>
+            <Tab.Screen name="Main" component={Main}/>
+            <Tab.Screen name="Calendar" component={CalendarScreen}/>
+            <Tab.Screen name="WishList" component={WishMain}/>
+            <Tab.Screen name="Memo" component={Memo}/>
         </Tab.Navigator>
     </NavigationContainer>
 );

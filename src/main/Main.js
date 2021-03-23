@@ -9,6 +9,7 @@ import {  Platform,
 import ImageSlider from 'react-native-image-slider';
 
 export default class Main extends Component {
+  const 
   render() {
     const images = [
       'https://placeimg.com/640/640/nature',
@@ -21,34 +22,15 @@ export default class Main extends Component {
       <View style={styles.container}>
 
         <ImageSlider
-          loopBothSides
-          autoPlayWithInterval={1000}
+          loop={false}
+          autoPlayWithInterval={5000}
           images={images}
-          customSlide={({ index, item, style, width }) => (
-            // It's important to put style here because it's got offset inside
+          customSlide={({ index, item, style }) => (
             <View key={index} style={[style, styles.customSlide]}>
               <Image source={{ uri: item }} style={styles.customImage} />
             </View>
           )}
-          customButtons={(position, move) => (
-            <View style={styles.buttons}>
-              {images.map((image, index) => {
-                return (
-                  <TouchableHighlight
-                    key={index}
-                    underlayColor="#ddd"
-                    onPress={() => move(index)}
-                    style={styles.button}
-                  >
-                    <Text style={position === index && styles.buttonSelected}>
-                      { index + 1}
-                      
-                    </Text>
-                  </TouchableHighlight>
-                );
-              })}
-            </View>
-          )}
+
         />
       </View>
     );

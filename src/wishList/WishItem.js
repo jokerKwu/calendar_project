@@ -8,6 +8,7 @@ import {
 import { FontAwesome } from '@expo/vector-icons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import DeleteButton from './DeleteButton';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 const WishItem = ({
     title,
     done,
@@ -27,6 +28,7 @@ const WishItem = ({
                     >
                     <FontAwesome name="check" color={done ? '#FFFFFF' : '#E0E0E0'} size={14} />
                     </TouchableOpacity>
+                    <Rating style={styles.raing} ratingCount={5} imageSize={15} defaultRating={0} />
                     <Text style={styles.title}>
                         {title}
                     </Text>
@@ -43,6 +45,9 @@ const styles = StyleSheet.create({
         paddingRight: 16,
         backgroundColor: '#FFFFFF',
     },
+    rating:{
+      marginHorizontal:10  
+    },
     wish: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -51,6 +56,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#E5E5E5',
     },
     title: {
+        marginLeft:10,
         fontSize: 16,
         color: '#424242'
     },
