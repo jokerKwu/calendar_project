@@ -1,17 +1,17 @@
 import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
 import {
-    SafeAreaView,
     StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
     View,
     FlatList,
-    Alert
 } from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
-
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import DeleteButton from '../wishList/DeleteButton';
+import MemoHeader from './MemoHeader';
 export default function Memo(props) {
     const [writeMode, setWriteMode] = useState(false);
     const [title, setTitle] = useState('');
@@ -32,7 +32,6 @@ export default function Memo(props) {
         }
     ];
     const [memos,setMemos] = useState(orimemo);
-
     const [idx, setIdx] = useState(4);
     const addMemo = () => {
         let a = {
@@ -40,8 +39,6 @@ export default function Memo(props) {
             title: title,
             content: content,
         };
-        console.log(a.title);
-        console.log(a.memo)
         setMemos(prev => [
             ...prev,
             a
@@ -49,17 +46,13 @@ export default function Memo(props) {
         setWriteMode(false);
         setIdx(prev => prev + 1);
     }
-    const renderMemo = ({item}) => {
-
+    const renderMemo = ({item,remove}) => {
         return (
-          <>
+            <Swipeable
+            renderRightActions={() => <DeleteButton onPress={remove}/>}
+        >
             <View
-                style={{
-                    padding: 10,
-                    borderBottomColor: '#ddd',
-                    borderBottomWidth: 1,
-                    flexDirection: 'row'
-                }}>
+                style={styles.memoItem}>
                 <Text style={{
                         marginRight: 10
                     }}>{item.id}</Text>
@@ -69,7 +62,7 @@ export default function Memo(props) {
                   <Text>{item.title}</Text>
                 </TouchableOpacity>
             </View>
-            </>
+            </Swipeable>
         );
     }
     if (writeMode) {
@@ -114,19 +107,13 @@ export default function Memo(props) {
                             backgroundColor: '#fff'
                         }}>
                         <TextInput
-                            style={{
-                                backgroundColor: '#fff',
-                                flex: 1,
-                                padding: 10
-                            }}
+                            style={styles.titleTextInput}
+                            placeholder="제목을 입력해주세요."
                             onChangeText={text => setTitle(text)}
                             multiline="multiline"/>
                             <TextInput
-                            style={{
-                                backgroundColor: '#fff',
-                                flex: 1,
-                                padding: 10
-                            }}
+                            style={styles.contentTextInput}
+                            placeholder="내용을 입력해주세요."
                             onChangeText={text => setContent(text)}
                             multiline="multiline"/>
                     </View>
@@ -141,6 +128,8 @@ export default function Memo(props) {
                 flex: 1,
                 backgroundColor: '#E3E1E1'
             }}>
+        <MemoHeader/>
+
             <View
                 style={{
                     flex: 1,
@@ -173,7 +162,6 @@ export default function Memo(props) {
                 </View>
             </View>
         </View>
-
     );
 }
 
@@ -187,5 +175,25 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0D629',
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    titleTextInput:{
+        width:'100%',
+        height:40,
+        borderWidth:1,
+        borderColor:'#DBE3ED',
+    },
+    contentTextInput:{
+        width:'100%',
+        height:'100%',
+        borderWidth:1,
+        borderColor:'#DBE3ED',
+    },
+    memoItem:{
+            padding: 10,
+            height:60,
+            borderBottomColor: '#ddd',
+            borderBottomWidth: 1,
+            flexDirection: 'row',
+            alignItems:'center',
+    },
 });

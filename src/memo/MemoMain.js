@@ -17,9 +17,11 @@ function MemoMain() {
           fontWeight: 'bold',
         },
       }}> 
-        <Stack.Screen name="메모장" component={Memo}/>
+        <Stack.Screen name="Memo" component={Memo} options={{
+          headerShown:false
+        }}/>
 		    <Stack.Screen name="MemoContent" component={MemoContent}  options={{
-          title:'글내용'
+          title:'내용'
         }}/>
       </Stack.Navigator>
   );

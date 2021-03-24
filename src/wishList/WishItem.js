@@ -35,7 +35,6 @@ const WishItem = ({
                 </View>
             </View>
         </Swipeable>
-        
     )
 }
 

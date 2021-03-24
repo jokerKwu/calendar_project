@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import MemoHeader from './MemoHeader';
 
 export default function MemoContent({route}) {
     const {title, content} = route.params;
