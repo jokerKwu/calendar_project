@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, TouchableOpacity,SafeAreaView} from 'react-nativ
 import Main from './src/main/Main';
 import CalendarScreen from './src/calendar/CalendarScreen';
 import WishMain from './src/wishList/WishMain';
-import Memo from './src/memo/Memo';
+import MemoMain from './src/memo/MemoMain';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Ionicons} from '@expo/vector-icons';
@@ -42,10 +42,10 @@ export default function App() {
             <Tab.Screen name="Main" component={Main}/>
             <Tab.Screen name="Calendar" component={CalendarScreen}/>
             <Tab.Screen name="WishList" component={WishMain}/>
-            <Tab.Screen name="Memo" component={Memo}/>
+            <Tab.Screen name="Memo" component={MemoMain}/>
         </Tab.Navigator>
     </NavigationContainer>
     </SafeAreaView>
 );
-}
+};
 

@@ -24,17 +24,8 @@ const styles = StyleSheet.create({
     title: {
         padding:15,
         fontSize:18,
-        textAlign:'center'
-    },
-    button: {
-        width: 28,
-        height: 28,
-        borderRadius: 14,
-        padding:15,
-        marginRight:10,
-        backgroundColor: '#F0D629',
-        justifyContent: 'center',
-        alignItems: 'center'
+        textAlign:'center',
+        fontWeight:'bold',
     }
 })
 
