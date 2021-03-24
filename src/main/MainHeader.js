@@ -5,11 +5,11 @@ import {
     StyleSheet,
 } from 'react-native';
 
-const MemoHeader = ({
+const MainHeader = ({
 }) => {
     return (
         <View style={styles.container}>
-        <Text style={styles.title}>메모장</Text>
+        <Text style={styles.title}>APP 1기 ♡</Text>
       </View>
     )
 }
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default MemoHeader 
+export default MainHeader 

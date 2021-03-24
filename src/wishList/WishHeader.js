@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:'space-between',
+        justifyContent:'center',
         backgroundColor:'#E3E1E1',
     },
     title: {

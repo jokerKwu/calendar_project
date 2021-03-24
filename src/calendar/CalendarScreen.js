@@ -2,7 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView,TouchableOpacity } from 'react-native';
 import { Agenda, LocaleConfig } from 'react-native-calendars';
-
+import CalendarHeader from './CalendarHeader';
 import { Ionicons } from '@expo/vector-icons';
 
 LocaleConfig.locales['fr'] = {
@@ -20,7 +20,7 @@ const CalendarScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-      <View style={{ flex: 1 }}>
+      <CalendarHeader/>
         <Agenda
           items={{
             '2019-04-15': [{text: 'any js object'}],
@@ -58,7 +58,6 @@ const CalendarScreen = () => {
           }}
         />
           
-      </View>
       <View style={{position:'absolute', right:20, bottom:20,zIndex:10,  }}>
 <TouchableOpacity
                 activeOpacity={0.8}
