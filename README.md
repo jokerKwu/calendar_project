@@ -35,7 +35,3 @@ npm add react-native-modal
 npm install --save react-native-gesture-handler
 </code></pre>
 
-### AsyncStorage install
-<pre><code>
-expo install @react-native-async-storage/async-storage
-</code></pre>
