@@ -1,10 +1,12 @@
-import React from 'react';
-import { StyleSheet, FlatList, SafeAreaView,View, AsyncStorage } from 'react-native';
+import React,{useState} from 'react';
+import { StyleSheet, FlatList, SafeAreaView,View, TouchableOpacity } from 'react-native';
 import WishHeader from './WishHeader';
 import WishItem from './WishItem';
 import TaskModal from './TaskModal';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class WishMain extends React.Component {
+
   state = {
     wish: [
     {
@@ -19,13 +21,10 @@ export default class WishMain extends React.Component {
     showModal:false,
   }
   render() {
+    
     return (
       <View style={styles.container}>
-        <WishHeader 
-        show={() => {
-          this.setState({showModal:true})
-        }}
-        />
+        <WishHeader/>
 <FlatList 
           data={this.state.wish}
           renderItem={({ item, index }) => {
@@ -50,6 +49,17 @@ export default class WishMain extends React.Component {
             )
           }}
 />
+<View style={{position:'absolute', right:20, bottom:20,zIndex:10,  }}>
+<TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.button}
+                onPress={() =>{ 
+                  this.state.showModal = true;
+                }}
+            >
+                <Ionicons name='ios-add' color='#FFF' size={24} />
+            </TouchableOpacity>
+            </View>
 <TaskModal 
           isVisible={this.state.showModal} 
           add={(title) => {
@@ -75,4 +85,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  button: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      padding:15,
+      marginRight:10,
+      backgroundColor: '#F0D629',
+      justifyContent: 'center',
+      alignItems: 'center'
+  }
 });

@@ -12,7 +12,7 @@ import {Ionicons} from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#E3E1E1' }}>
     <NavigationContainer>
         <Tab.Navigator
             screenOptions={({route}) => ({
@@ -36,8 +36,8 @@ export default function App() {
                 }
             })}
             tabBarOptions={{
-                activeTintColor: "#ff5722",
-                inactiveTintColor: "#d9c6a5"
+                activeTintColor: "#F0D629",
+                inactiveTintColor: "#FFEA8A"
             }}>
             <Tab.Screen name="Main" component={Main}/>
             <Tab.Screen name="Calendar" component={CalendarScreen}/>

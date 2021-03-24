@@ -3,23 +3,13 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 const WishHeader = ({
-    show,
 }) => {
     return (
         <View style={styles.container}>
         <Text style={styles.title}>할 일 목록</Text>
-        <TouchableOpacity
-                activeOpacity={0.8}
-                style={styles.button}
-                onPress={show}
-            >
-                <Ionicons name='ios-add' color='#FFF' size={24} />
-            </TouchableOpacity>
       </View>
     )
 }
@@ -29,7 +19,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        backgroundColor:'#A3CCF0',
+        backgroundColor:'#E3E1E1',
     },
     title: {
         padding:15,
@@ -42,7 +32,7 @@ const styles = StyleSheet.create({
         borderRadius: 14,
         padding:15,
         marginRight:10,
-        backgroundColor: '#D9B589',
+        backgroundColor: '#F0D629',
         justifyContent: 'center',
         alignItems: 'center'
     }

@@ -9,7 +9,7 @@ import {  Platform,
 import ImageSlider from 'react-native-image-slider';
 
 export default class Main extends Component {
-  const 
+  
   render() {
     const images = [
       'https://placeimg.com/640/640/nature',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   customSlide: {
-    backgroundColor: '#CFF2FA',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },

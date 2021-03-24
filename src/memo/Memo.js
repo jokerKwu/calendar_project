@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, 
           TouchableOpacity, View, FlatList, Alert } from 'react-native';
+          
+import { Ionicons } from '@expo/vector-icons';
 export default function Memo() {
   const [writeMode, setWriteMode] = useState(false); 
   const [txt, setTxt] = useState(''); 
@@ -37,7 +39,7 @@ export default function Memo() {
   }
   if(writeMode){
     return (
-      <View style={{flex:1, backgroundColor:'#D9CC8B', }}>
+      <View style={{flex:1, backgroundColor:'#E3E1E1', }}>
 
       <View  style={{flex:1,   }}>        
         <View style={{flexDirection:'row', justifyContent:'space-between'}}>
@@ -50,7 +52,7 @@ export default function Memo() {
         </View>
         <View style={{flex:1, backgroundColor:'#fff', }}>
         <TextInput
-            style={{  backgroundColor: '#eee',flex:1, padding:10,  }}
+            style={{  backgroundColor: '#fff',flex:1, padding:10,  }}
             onChangeText={text => setTxt(text)}
             multiline 
           />
@@ -60,27 +62,21 @@ export default function Memo() {
       </View>
     );
   }
-
-
-
-
   return (
-
-    <View style={{flex:1, backgroundColor:'#A3CCF0', }}>
+    <View style={{flex:1, backgroundColor:'#E3E1E1', }}>
       <View style={{}}>
         <Text style={{fontSize:18, padding:15 }}>메모장</Text>
       </View>
       <View style={{flex:1, backgroundColor:'#fff', }}>
 
-        <View style={{position:'absolute', right:20, bottom:20,zIndex:10,  }}>
-          <View style={{          width:50, height:50, backgroundColor:'#D9B589', borderRadius:25,
-                alignItems:'center', justifyContent:'center', 
-            }}>          
-            <TouchableOpacity onPress={()=>setWriteMode(true)}>       
-              <Text style={{color:'#ffff', }}>글쓰기</Text>
+      <View style={{position:'absolute', right:20, bottom:20,zIndex:10,  }}>
+<TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.button}
+                onPress={()=>setWriteMode(true)}>
+                <Ionicons name='ios-add' color='#FFF' size={24} />
             </TouchableOpacity>
-          </View>
-        </View>
+            </View>
       <View style={{flex:1, }}>
         <FlatList data={memos}  renderItem={renderMemo}   style={{flex:1}} />
       </View>
@@ -90,3 +86,16 @@ export default function Memo() {
   );
 }
  
+
+const styles = StyleSheet.create({
+  button: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      padding:15,
+      marginRight:10,
+      backgroundColor: '#F0D629',
+      justifyContent: 'center',
+      alignItems: 'center'
+  }
+});
