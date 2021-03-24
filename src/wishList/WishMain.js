@@ -65,10 +65,9 @@ export default class WishMain extends React.Component {
                         onPress={() => {
                             this.state.showModal = true;
                         }}>
-                        <Ionicons name='ios-add' color='#FFF' size={24}/>
+                        <Ionicons name='add-circle-outline' color='#FFF' size={24}/>
                     </TouchableOpacity>
-                </View>
-                <TaskModal
+                    <TaskModal
                     isVisible={this.state.showModal}
                     add={(title) => {
                         this.setState({
@@ -82,6 +81,8 @@ export default class WishMain extends React.Component {
                     hide={() => {
                         this.setState({showModal: false})
                     }}/>
+                </View>
+                
             </View>
         );
     }
@@ -89,7 +90,7 @@ export default class WishMain extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex:1,
         backgroundColor: '#fff'
     },
     button: {

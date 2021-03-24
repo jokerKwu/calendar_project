@@ -110,12 +110,12 @@ export default function Memo(props) {
                             style={styles.titleTextInput}
                             placeholder="제목을 입력해주세요."
                             onChangeText={text => setTitle(text)}
-                            multiline="multiline"/>
+                            multiline={true}/>
                             <TextInput
                             style={styles.contentTextInput}
                             placeholder="내용을 입력해주세요."
                             onChangeText={text => setContent(text)}
-                            multiline="multiline"/>
+                            multiline={true}/>
                     </View>
                     <StatusBar style="auto"/>
                 </View>
@@ -147,7 +147,7 @@ export default function Memo(props) {
                         activeOpacity={0.8}
                         style={styles.button}
                         onPress={() => setWriteMode(true)}>
-                        <Ionicons name='ios-add' color='#FFF' size={24}/>
+                        <Ionicons name='add-circle-outline' color='#FFF' size={24}/>
                     </TouchableOpacity>
                 </View>
                 <View style={{
