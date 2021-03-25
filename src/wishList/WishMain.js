@@ -63,7 +63,8 @@ export default class WishMain extends React.Component {
                         activeOpacity={0.8}
                         style={styles.button}
                         onPress={() => {
-                            this.state.showModal = true;
+                            this.setState({showModal:true})
+
                         }}>
                         <Ionicons name='add-circle-outline' color='#FFF' size={24}/>
                     </TouchableOpacity>
@@ -87,6 +88,7 @@ export default class WishMain extends React.Component {
         );
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
