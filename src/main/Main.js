@@ -16,29 +16,28 @@ const images = [
   require("../../static/img/image10.jpg"),
 ];
 
-export default class Main extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <MainHeader />
-        <ImageSlider
-          loop={true}
-          autoPlayWithInterval={4000}
-          images={images}
-          customSlide={({ index, item, style }) => (
-            <View key={index} style={[style, styles.customSlide]}>
-              <Image
-                source={item}
-                style={styles.customImage}
-                resizeMode="contain"
-              />
-            </View>
-          )}
-        />
-      </View>
-    );
-  }
+export default function Main(){
+  return(
+    <View style={styles.container}>
+    <MainHeader />
+    <ImageSlider
+      loop={true}
+      autoPlayWithInterval={4000}
+      images={images}
+      customSlide={({ index, item, style }) => (
+        <View key={index} style={[style, styles.customSlide]}>
+          <Image
+            source={item}
+            style={styles.customImage}
+            resizeMode="contain"
+          />
+        </View>
+      )}
+    />
+  </View>
+  );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
