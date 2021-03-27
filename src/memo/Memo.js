@@ -12,7 +12,8 @@ import { Ionicons } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import DeleteButton from "../wishList/DeleteButton";
 import MemoHeader from "./MemoHeader";
-
+import MemoSave from "./MemoSave";
+import MemoItem from "./MemoItem";
 export default function Memo(props) {
   const [writeMode, setWriteMode] = useState(false);
   const [title, setTitle] = useState("");
@@ -72,124 +73,12 @@ export default function Memo(props) {
     );
   };
   if (writeMode) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "#E3E1E1",
-        }}
-      >
-        <View
-          style={{
-            flex: 1,
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-            <TouchableOpacity
-              style={{
-                padding: 15,
-              }}
-              onPress={() => setWriteMode(false)}
-            >
-              <Text
-                style={{
-                  fontSize: 18,
-                }}
-              >
-                취소
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                padding: 15,
-              }}
-              onPress={() => addMemo()}
-            >
-              <Text
-                style={{
-                  fontSize: 18,
-                }}
-              >
-                저장
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: "#fff",
-            }}
-          >
-            <TextInput
-              style={styles.titleTextInput}
-              placeholder="제목을 입력해주세요."
-              onChangeText={(text) => setTitle(text)}
-              multiline={true}
-            />
-            <TextInput
-              style={styles.contentTextInput}
-              placeholder="내용을 입력해주세요."
-              onChangeText={(text) => setContent(text)}
-              multiline={true}
-            />
-          </View>
-          <StatusBar style="auto" />
-        </View>
-      </View>
-    );
+    return <MemoSave />;
   }
-  return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#E3E1E1",
-      }}
-    >
-      <MemoHeader />
 
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "#fff",
-        }}
-      >
-        <View
-          style={{
-            position: "absolute",
-            right: 20,
-            bottom: 20,
-            zIndex: 10,
-          }}
-        >
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={styles.button}
-            onPress={() => setWriteMode(true)}
-          >
-            <Ionicons name="add-circle-outline" color="#FFF" size={24} />
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            flex: 1,
-          }}
-        >
-          <FlatList
-            data={memos}
-            renderItem={renderMemo}
-            style={{
-              flex: 1,
-            }}
-          />
-        </View>
-      </View>
-    </View>
-  );
+  return;
+  <MemoHeader />;
+  <MemoItem />;
 }
 
 const styles = StyleSheet.create({

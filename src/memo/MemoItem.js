@@ -1,48 +1,32 @@
+import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   StyleSheet,
-  FlatList,
-  SafeAreaView,
-  View,
+  Text,
+  TextInput,
   TouchableOpacity,
+  View,
+  FlatList,
 } from "react-native";
-import WishHeader from "./WishHeader";
-import WishItem from "./WishItem";
-import TaskModal from "./TaskModal";
 import { Ionicons } from "@expo/vector-icons";
-
-export default function WishMain() {
-  const wish = [
-    {
-      title: "WishList 01",
-      done: true,
-    },
-    {
-      title: "WishList 02",
-      done: false,
-    },
-  ];
-  const [showModal, setShowModal] = useState(false);
-  const [wishList, setWishList] = useState(wish);
+export default function MemoItem() {
   return (
     <View style={styles.container}>
-      <WishHeader />
-      <FlatList
-        data={wishList}
-        renderItem={({ item, index }) => {
-          return <WishItem />;
-        }}
-      />
-      <View style={styles.addButtonContainer}>
+      <View style={styles.buttonContainer}>
         <TouchableOpacity
           activeOpacity={0.8}
           style={styles.button}
-          onPress={() => {
-            setShowModal(true);
-          }}
+          onPress={() => setWriteMode(true)}
         >
           <Ionicons name="add-circle-outline" color="#FFF" size={24} />
         </TouchableOpacity>
+      </View>
+      <View>
+        <FlatList
+          data={memos}
+          renderItem={renderMemo}
+          style={styles.listContainer}
+        />
       </View>
     </View>
   );
@@ -51,7 +35,7 @@ export default function WishMain() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#E3E1E1",
   },
   button: {
     width: 28,
@@ -63,10 +47,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  addButtonContainer: {
+  buttonContainer: {
     position: "absolute",
     right: 20,
     bottom: 20,
     zIndex: 10,
+  },
+  listContainer: {
+    flex: 1,
   },
 });
