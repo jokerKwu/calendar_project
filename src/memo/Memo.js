@@ -76,9 +76,12 @@ export default function Memo(props) {
     return <MemoSave />;
   }
 
-  return;
-  <MemoHeader />;
-  <MemoItem />;
+  return (
+    <View>
+      <MemoHeader />
+      <MemoItem />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
