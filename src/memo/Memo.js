@@ -1,10 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
 import React, {useState} from 'react';
-import { Ionicons } from "@expo/vector-icons";
-import Swipeable from "react-native-gesture-handler/Swipeable";
-import DeleteButton from "../wishList/DeleteButton";
-import MemoHeader from "./MemoHeader";
-import MemoSave from "./MemoSave";
 import {
     StyleSheet,
     Text,
