@@ -11,6 +11,7 @@ const TaskModal = ({
     hide,
     add,
 }) => {
+    console.log(isVisible + "여기 들어와야됨");
     let content = ''
     return (
         <Modal
