@@ -14,11 +14,6 @@ import MemoMain from "./src/memo/MemoMain";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-<<<<<<< HEAD
-
-=======
->>>>>>> 2ccb71f687522c4e62be8058e0ac1555b1745fbd
-
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
