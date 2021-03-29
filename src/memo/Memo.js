@@ -13,7 +13,11 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 import DeleteButton from "../wishList/DeleteButton";
 import MemoHeader from "./MemoHeader";
 import MemoSave from "./MemoSave";
+<<<<<<< HEAD
 import MemoItem from "./MemoItemC";
+=======
+import MemoItem from "./MemoItem";
+>>>>>>> 2ccb71f687522c4e62be8058e0ac1555b1745fbd
 export default function Memo(props) {
   const [writeMode, setWriteMode] = useState(false);
   const [title, setTitle] = useState("");

@@ -9,31 +9,51 @@ import {
   FlatList,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import Swipeable from "react-native-gesture-handler/Swipeable";
-import DeleteButton from "../wishList/DeleteButton";
+export default function MemoItem() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={styles.button}
+          onPress={() => setWriteMode(true)}
+        >
+          <Ionicons name="add-circle-outline" color="#FFF" size={24} />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <FlatList
+          data={memos}
+          renderItem={renderMemo}
+          style={styles.listContainer}
+        />
+      </View>
+    </View>
+  );
+}
 
-const MemoItem = (props,remove) =>{
-    return(
-        <Swipeable renderRightActions={() => <DeleteButton onPress={remove} />}>
-        <View style={styles.memoItem}>
-          <Text
-            style={{
-              marginRight: 10,
-            }}
-          >
-            {item.id}
-          </Text>
-          <TouchableOpacity
-            onPress={() => {
-              props.navigation.navigate("MemoContent", {
-                title: item.title,
-                content: item.content,
-              });
-            }}
-          >
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        </View>
-      </Swipeable>
-    );
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#E3E1E1",
+  },
+  button: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    padding: 15,
+    marginRight: 10,
+    backgroundColor: "#F0D629",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonContainer: {
+    position: "absolute",
+    right: 20,
+    bottom: 20,
+    zIndex: 10,
+  },
+  listContainer: {
+    flex: 1,
+  },
+});

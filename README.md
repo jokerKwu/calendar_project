@@ -42,7 +42,11 @@ npm install --save react-native-gesture-handler
 
 <pre><code>
 npm install --save redux react-redux
+<<<<<<< HEAD
 
 
 </code></pre>
 
+=======
+</code></pre>
+>>>>>>> 2ccb71f687522c4e62be8058e0ac1555b1745fbd
