@@ -7,7 +7,7 @@ import MemoContent from './MemoContent';
 
 const Stack = createStackNavigator();
 
-function MemoMain() {
+export default function MemoMain() {
   return (
       <Stack.Navigator screenOptions={{
         headerStyle: {
@@ -26,5 +26,3 @@ function MemoMain() {
       </Stack.Navigator>
   );
 }
-
-export default MemoMain;
