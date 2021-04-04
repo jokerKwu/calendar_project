@@ -1,6 +1,25 @@
 # calendar_project
 
-react-native project
+react-native myApp project
+
+# App Function
+
+### 1. Main
+메인 이미지 페이지 슬라인더 사용
+
+### 2. Calendar
+캘린더 일정 관리
+
+### 3. wishlist
+toDo list 기능
+
+### 4. Memo 
+메모장 기능
+
+# Landing page
+
+https://user-images.githubusercontent.com/35329247/113508926-aec4ea00-958d-11eb-8ea5-fc3615452668.mp4
+
 
 # Installation
 
@@ -43,3 +62,4 @@ npm install --save react-native-gesture-handler
 <pre><code>
 npm install --save redux react-redux
 </code></pre>
+
